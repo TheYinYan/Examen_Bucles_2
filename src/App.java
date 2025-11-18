@@ -11,7 +11,6 @@ public class App {
         int repetir = 7;
 
         int num = Integer.parseInt(System.console().readLine("Introduce un número del 0 al 9: "));
-
         switch (num) {
             case 0 -> {
                 superior = true;
@@ -84,24 +83,17 @@ public class App {
             }
         }
 
-        for (int i = 0; i <= repetir; i++) {
-            for (int j = 1; j <= 5; j++) {
-                System.out.print(((i == 1 && j == 1) ? " "
-                        : (i == 1 && superior && j > 1 && j <= 4) ? "*"
-                                : (i == 2 && j == 1 && superiorIzquierda || i == 3 && j == 1 && superiorIzquierda) ? "*"
-                                        : (i == 2 && j == 5 && superiorDerecha || i == 3 && j == 5 && superiorDerecha)
-                                                ? "*"
-                                                : (i == 4 && central && j > 1 && j <= 4) ? "*"
-                                                        : (i == 5 && j == 1 && inferiorIzquierda
-                                                                || i == 6 && j == 1 && inferiorIzquierda) ? "*"
-                                                                        : (i == 5 && j == 5 && inferiorDerecha
-                                                                                || i == 6 && j == 5 && inferiorDerecha)
-                                                                                        ? "*"
-                                                                                        : (i == 7 && inferior && j > 1
-                                                                                                && j <= 4) ? "*"
-                                                                                                        : " "));
-            }
+        for (int i = 1; i <= repetir; i++) {
+            System.out.print(((i == 1 && superior) ? " *** "
+                    : (i == 2 && superiorIzquierda || i == 3 && superiorIzquierda) ? "*   "
+                            : (i == 2 && superiorDerecha || i == 3 && superiorDerecha) ? "   *"
+                                    : (i == 4 && central) ? " *** "
+                                            : (i == 5 && inferiorIzquierda || i == 6 && inferiorIzquierda) ? "*   "
+                                                    : (i == 5 && inferiorDerecha || i == 6 && inferiorDerecha) ? "   *"
+                                                            : (i == 7 && inferior) ? " *** " : " "));
             System.out.println();
         }
+
     }
+
 }
